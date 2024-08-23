@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%= pageTitle %></title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="./assets/vendor/bootstrap-5.3.3-dist/css/bootstrap.css" rel="stylesheet" media="all">
+  <link href="./assets/vendor/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet" media="all">
+  <!-- Vendor CSS-->
+  <link href="./assets/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+  <link href="./assets/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./assets/vendor/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="./assets/vendor/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="./assets/vendor/dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition register-page" >
+  <div class=" col-xl-4 col-md-6 col-sm-12 ">
+    <!-- <div class="register-logo">
+      <a href="/register"><b>Voting</b> System</a>
+    </div> -->
+  
+    <div class="card-container card">
+      <div class="card-body register-card-body col-12">
+        <div class="text-center bg-secondary p-1">
+          <h3><b>Voting</b> System</h3>
+        </div>
+        
+        
+        <form action="/" method="post" role="form" id="registrationForm" enctype="multipart/form-data">
+          <% if(errorMessage) { %>
+            <span class="text-danger d-block text-center mt-2 p-0 "><%= errorMessage %></span> 
+          <% } %>
+          <!-- /.card-body -->
+          <div class="card-body">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input type="text" name="fName" class="form-control" id="first-name" placeholder="Enter First Name">
+            </div>
+
+            <div class="form-group">
+              <label for="middle-name">Middle Name</label>
+              <input type="text" name="mName" class="form-control" id="middle-name"  placeholder="Enter Middle Name">
+            </div>
+
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" name="lName" class="form-control" id="last-name" placeholder="Enter Last Name">
+            </div>
+
+            <div class="form-group">
+              <label for="dob" class="label">Date of Birth</label>
+                <input type="date" name="dob" id="dob" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+
+              <!-- /.input group -->
+            </div>
+
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" name="username" class="form-control" id="username" placeholder="Enter username">
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" class="form-control"  id="password" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+              <label for="file">Image</label>
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" name="photo" class="custom-file-input inputImage"  id="file">
+                  <label class="custom-file-label imageName" for="file">Choose image</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <select name="role" class="form-select" aria-label="Default select">
+                        <option class="border border-secondary" selected>Select role</option>
+
+                        <% for(const usersRole of module) {%>
+                        <option name="role"><%= usersRole.role %></option>
+                        <% } %>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class=" input-group">
+              <button class="btn btn-radius-2 btn-primary submit btn-block" type="submit" id="submit">Submit</button>
+            </div>
+          </div>
+
+          <!-- Form elements end! -->
+
+      </form>
+      <div class="social-auth-links text-center">
+        Already have account? <a href="/" class="text-center">Login</a>
+        </div>
+    </div>
+    <!-- /.form-box -->
+    </div><!-- /.card -->
+    </div>
+    <!-- /.register-box -->
+
+    <!-- jquery-validation -->
+<script src="./assets/vendor/jquery-validation/jquery.validate.min.js"></script>
+<script src="./assets/vendor/jquery-validation/additional-methods.min.js"></script>
+<!-- External Script -->
+<script src="./assets/js/js/main.js"></script> 
+<!-- jQuery -->
+<script src="./assets/vendor/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="./assets/vendor/dist/js/adminlte.min.js"></script>
+<!-- Font awesome -->
+<script src="https://kit.fontawesome.com/cd31aca100.js" crossorigin="anonymous"></script>
+
+<!-- Main JS-->
+<script src="./assets/js/main.js"></script>
+<!-- Vendor JS-->
+<script src="./assets/vendor/select2/select2.min.js"></script>
+<script src="./assets/vendor/datepicker/moment.min.js"></script>
+<script src="./assets/vendor/datepicker/daterangepicker.js"></script>
+<script type="text/javascript">
+  //Registratoin validation start
+
+$(document).ready(function () {
+    // bsCustomFileInput.init();
+    // $.validator.setDefaults({
+    //   submitHandler: function () {
+    //     alert( "Form successful submitted!" );
+    //   }
+    // });
+    $('#registrationForm').validate({
+        rules: {
+
+        fName: {
+            required: true,
+            minlength: 2
+        },
+
+        lName: {
+            required: true,
+            minlength: 2
+        },
+
+        dob: {
+            required: true
+        },
+
+        username: {
+            required: true,
+            minlength: 3
+        },
+
+        password: {
+            required: true,
+            minlength: 8
+        },
+
+        photo: {
+            required: false
+        }
+
+        },
+
+        messages: {
+
+        fName: {
+            required: "Please provid your first name.",
+            minlength: "Invalid name."
+        },
+
+        mName: {
+            required: "Please provid your first name.",
+            minlength: "Invalid name."
+        },
+
+        lName: {
+            required: "Please provid your first name.",
+            minlength: "Invalid name"
+        },
+
+        password: {
+            required: "Please provide a password.",
+            minlength: "Your password must be at least 8 characters long."
+        },
+
+        photo: {
+          required: "Please upload a photo"
+        }
+
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+        error.addClass('invalid-feedback');
+        element.closest('.form-group').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+        $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+        $(element).removeClass('is-invalid');
+        }
+    });
+});
+
+//Registration validation starts
+</script>
+</body>
+</html>

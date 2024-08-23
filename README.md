@@ -1,1 +1,1 @@
-# elections-app
+# election-app

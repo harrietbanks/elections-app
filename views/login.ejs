@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%= pageTitle %></title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="./assets/vendor/bootstrap-5.3.3-dist/css/bootstrap.css" rel="stylesheet" media="all">
+  <link href="./assets/vendor/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet" media="all">
+  <!-- Vendor CSS-->
+  <link href="./assets/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+  <link href="./assets/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./assets/vendor/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="./assets/vendor/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="./assets/vendor/dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="/"><b>Voting</b> System</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card shadow rounded-1">
+      <div class="card-body login-card-body p-4">
+        <p class="login-box-msg p-0 pt-3">Log in to start your session</p>
+  </div>
+      <% if(errorMessage) { %>
+      <span class="text-danger d-block text-center  p-0 "><%= errorMessage %></span>
+      <% } %>
+      <form action="/dashboard" method="post" class="p-5" id="loginForm" role="form">
+        <div class="input-group mb-3 form-group">
+          <input type="text" name="username" class="form-control" placeholder="Username">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fa fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group form-group mb-3">
+          <input type="password" name="password" class="form-control" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-8 ">
+            <div class="icheck-primary">
+              <input type="checkbox" name="rememberMe" id="remember-me">
+              <label for="remember-me">
+                Remember Me
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+      <div class="social-auth-links text-center mb-3 pb-5">
+        <p class="mb-1">
+          <i>Forgot password? </i> <a href="/forgot-password">Reset</a>
+        </p>
+        <p class="mb-0">
+          <i>Don't have account? </i><a href="/register" class="text-center"> Register</a>
+        </p>
+      </div>
+      <!-- /.social-auth-links -->
+    </div>
+    <!-- /.login-card-body -->
+    </div>
+    </div>
+    <!-- /.login-box -->
+
+<!-- jquery-validation -->
+ <!-- Jquery JS-->
+<script src="./assets/vendor/jquery/jquery.js"></script>
+<script src="./assets/vendor/jquery/jquery.min.js"></script>
+<script src="./assets/vendor/jquery-validation/jquery.validate.min.js"></script>
+<script src="./assets/vendor/jquery-validation/additional-methods.min.js"></script>
+ <!-- jQuery --> 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+<!--  jQuery Validation Plugin -->
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.19.5/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.19.5/additional-methods.min.js"></script>
+
+<!-- External Script -->
+<script src="./assets/js/js/main.js"></script> 
+<!-- jQuery -->
+<script src="./assets/vendor/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="./assets/vendor/dist/js/adminlte.min.js"></script>
+<!-- Font awesome -->
+<script src="https://kit.fontawesome.com/cd31aca100.js" crossorigin="anonymous"></script>
+
+<!-- Main JS-->
+<script src="./assets/js/main.js"></script>
+<!-- Vendor JS-->
+<script src="./assets/vendor/select2/select2.min.js"></script>
+<script src="./assets/vendor/datepicker/moment.min.js"></script>
+<script src="./assets/vendor/datepicker/daterangepicker.js"></script>
+<script type="text/javascript">
+  // Login validation
+  $(document).ready(function () {
+ 
+// $.validator.setDefaults({
+//   submitHandler: function () {
+//     location.href = "/dashboard"
+//   }
+// });
+  $('#loginForm').validate({
+      rules: {
+      username: {
+          required: true
+
+      },
+      password: {
+          required: true,
+          minlength: 8
+      }
+      },
+      messages: {
+      password: {
+          required: "Please provide a password",
+          minlength: "Your password must be at least 8 characters long"
+      },
+      username: {
+        required: "Please provide a username"
+      }
+      },
+      errorElement: 'span',
+      errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+      },
+      highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+      },
+      unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+      }
+  });
+});
+</script>
+
+</body>
+</html>
