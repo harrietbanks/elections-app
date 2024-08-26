@@ -71,200 +71,27 @@
                     <div class="row justify-content-center align-items-center">
                         
                         <!-- Cards start -->
-    
-                        <div class="card m-2 shadow col-xl-2 col-md-6 mb-4 ml-1" >
-                            <div class="card-body">
-                                <div class="row no-gutters d-flex justify-content-between">
-                                    <div class="col-auto">
-                                        <i class="fas fa-user-tie fa-4x text-dark-300"></i>
+                        <% candidatesData.forEach( (candidate) => { %>
+                            <div class="card m-2 shadow col-xl-2 col-md-6 mb-4 ml-1" >
+                                <div class="card-body">
+                                    <div class="row no-gutters d-flex justify-content-between">
+                                        <div class="col-auto">
+                                            <img src="<%= candidate.photo ? '/' + candidate.photo : './uploads/contestants/default-president.png' %>" alt="<%= candidate.fname %> <%= candidate.lname %> photo" style="max-width: 100px; max-height: 100px; object-fit: cover;" class="img-profile img-fluid rounded-1 img-thumbnail">
+                                        </div>
+                                        <div class="">
+                                            <h5 class="card-title h3">0<%= candidate.vote %></h5>
+                                            <p class="h5">Votes</p>
+                                        </div>
                                     </div>
-                                    <div class="">
-                                        <h5 class="card-title h3">40</h5>
-                                        <p class="h5">Votes</p>
-                                    </div>
-                                </div>
-                                <h6 class="card-subtitle my-2 text-body-secondary">Emmanuel Siakakono</h6>
-                                <hr>
-                                <div class="progress progress-group">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><b>60%</b></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="card m-2 shadow col-xl-2 col-md-6 mb-4 ml-1" >
-                            <div class="card-body">
-                                <div class="row no-gutters d-flex justify-content-between">
-                                    <div class="col-auto">
-                                        <i class="fas fa-user-tie fa-4x text-dark-300"></i>
-                                    </div>
-                                    <div class="">
-                                        <h5 class="card-title h3">40</h5>
-                                        <p class="h5">Votes</p>
+                                    <h6 class="card-subtitle my-2 font-weight-bold col-md-h2 text-body-secondary"><%= candidate.fname %> <%= candidate.mname %> <%= candidate.lname %></h6>
+                                    <span><%= candidate.position_id %> - <%= candidate.party_id %></span>
+                                    <hr>
+                                    <div class="progress progress-group">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="<%= candidate.total_vote_percentage %>" style="width: <%= candidate.total_vote_percentage %>;"><b><%= candidate.total_vote_percentage %></b></div>
                                     </div>
                                 </div>
-                                <h6 class="card-subtitle my-2 text-body-secondary">Emmanuel Siakakono</h6>
-                                <hr>
-                                <div class="progress progress-group">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><b>60%</b></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="card m-2 shadow col-xl-2 col-md-6 mb-4 ml-1" >
-                            <div class="card-body">
-                                <div class="row no-gutters d-flex justify-content-between">
-                                    <div class="col-auto">
-                                        <i class="fas fa-user-tie fa-4x text-dark-300"></i>
-                                    </div>
-                                    <div class="">
-                                        <h5 class="card-title h3">40</h5>
-                                        <p class="h5">Votes</p>
-                                    </div>
-                                </div>
-                                <h6 class="card-subtitle my-2 text-body-secondary">Emmanuel Siakakono</h6>
-                                <hr>
-                                <div class="progress progress-group">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><b>60%</b></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="card m-2 shadow col-xl-2 col-md-6 mb-4 ml-1" >
-                            <div class="card-body">
-                                <div class="row no-gutters d-flex justify-content-between">
-                                    <div class="col-auto">
-                                        <i class="fas fa-user-tie fa-4x text-dark-300"></i>
-                                    </div>
-                                    <div class="">
-                                        <h5 class="card-title h3">40</h5>
-                                        <p class="h5">Votes</p>
-                                    </div>
-                                </div>
-                                <h6 class="card-subtitle my-2 text-body-secondary">Emmanuel Siakakono</h6>
-                                <hr>
-                                <div class="progress progress-group">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><b>60%</b></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="card m-2 shadow col-xl-2 col-md-6 mb-4 ml-1" >
-                            <div class="card-body">
-                                <div class="row no-gutters d-flex justify-content-between">
-                                    <div class="col-auto">
-                                        <i class="fas fa-user-tie fa-4x text-dark-300"></i>
-                                    </div>
-                                    <div class="">
-                                        <h5 class="card-title h3">40</h5>
-                                        <p class="h5">Votes</p>
-                                    </div>
-                                </div>
-                                <h6 class="card-subtitle my-2 text-body-secondary">Emmanuel Siakakono</h6>
-                                <hr>
-                                <div class="progress progress-group">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><b>60%</b></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="card m-2 shadow col-xl-2 col-md-6 mb-4 ml-1" >
-                            <div class="card-body">
-                                <div class="row no-gutters d-flex justify-content-between">
-                                    <div class="col-auto">
-                                        <i class="fas fa-user-tie fa-4x text-dark-300"></i>
-                                    </div>
-                                    <div class="">
-                                        <h5 class="card-title h3">40</h5>
-                                        <p class="h5">Votes</p>
-                                    </div>
-                                </div>
-                                <h6 class="card-subtitle my-2 text-body-secondary">Emmanuel Siakakono</h6>
-                                <hr>
-                                <div class="progress progress-group">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><b>60%</b></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="card m-2 shadow col-xl-2 col-md-6 mb-4 ml-1" >
-                            <div class="card-body">
-                                <div class="row no-gutters d-flex justify-content-between">
-                                    <div class="col-auto">
-                                        <i class="fas fa-user-tie fa-4x text-dark-300"></i>
-                                    </div>
-                                    <div class="">
-                                        <h5 class="card-title h3">40</h5>
-                                        <p class="h5">Votes</p>
-                                    </div>
-                                </div>
-                                <h6 class="card-subtitle my-2 text-body-secondary">Emmanuel Siakakono</h6>
-                                <hr>
-                                <div class="progress progress-group">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><b>60%</b></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="card m-2 shadow col-xl-2 col-md-6 mb-4 ml-1" >
-                            <div class="card-body">
-                                <div class="row no-gutters d-flex justify-content-between">
-                                    <div class="col-auto">
-                                        <i class="fas fa-user-tie fa-4x text-dark-300"></i>
-                                    </div>
-                                    <div class="">
-                                        <h5 class="card-title h3">40</h5>
-                                        <p class="h5">Votes</p>
-                                    </div>
-                                </div>
-                                <h6 class="card-subtitle my-2 text-body-secondary">Emmanuel Siakakono</h6>
-                                <hr>
-                                <div class="progress progress-group">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><b>60%</b></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="card m-2 shadow col-xl-2 col-md-6 mb-4 ml-1" >
-                            <div class="card-body">
-                                <div class="row no-gutters d-flex justify-content-between">
-                                    <div class="col-auto">
-                                        <i class="fas fa-user-tie fa-4x text-dark-300"></i>
-                                    </div>
-                                    <div class="">
-                                        <h5 class="card-title h3">40</h5>
-                                        <p class="h5">Votes</p>
-                                    </div>
-                                </div>
-                                <h6 class="card-subtitle my-2 text-body-secondary">Emmanuel Siakakono</h6>
-                                <hr>
-                                <div class="progress progress-group">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><b>60%</b></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="card m-2 shadow col-xl-2 col-md-6 mb-4 ml-1" >
-                            <div class="card-body">
-                                <div class="row no-gutters d-flex justify-content-between">
-                                    <div class="col-auto">
-                                        <i class="fas fa-user-tie fa-4x text-dark-300"></i>
-                                    </div>
-                                    <div class="">
-                                        <h5 class="card-title h3">40</h5>
-                                        <p class="h5">Votes</p>
-                                    </div>
-                                </div>
-                                <h6 class="card-subtitle my-2 text-body-secondary">Emmanuel Siakakono</h6>
-                                <hr>
-                                <div class="progress progress-group">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><b>60%</b></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-
-                        
-                        
+                            </div> 
+                        <% }); %>
                         <!-- Cards end! -->
                     </div>
                 </div>

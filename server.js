@@ -371,54 +371,64 @@ app.post('/dashboard', (req, res) => {
     });
 });
 
-// Admin Dashboard - GET route
 app.get('/dashboard', (request, response) => {
-
-    // Get username and image path from session
     const username = request.session.username;
-    const imagePath = request.session.imagePath; // Retrieve the image path from session
-
-    //Declare candidates variable to an empty value;
-    let candidatesData; 
+    const imagePath = request.session.imagePath;
 
     if (username) {
- //query the total number of voter from role column in user table
-        const retrieveData = `SELECT COUNT(*) AS total_voters FROM user WHERE role = 'Voter'`; 
+        const retrieveData = `SELECT COUNT(*) AS total_voters FROM user WHERE role = 'Voter'`;
+
         db.get(retrieveData, [], (err, row) => {
-
-            if(err){
+            if (err) {
                 console.error('Error counting role: ', err.message);
-            }else{
-
-                //Get all contestants details
-                const contestantsDetails = `SELECT * FROM candidates`;
-                db.all(contestantsDetails, [], (err, rows) => {
-                    if(err){
-                        console.error(`Error retrieving contestants details: ${err.message}`);
-                    }else{
-
-                        console.log('All candidates:', rows.fname);
-
-                        if(row){
-
-                            const userDashboard = 'Admin Electorial Dashboard';
-                            console.log('Total voters: ', row.total_voters);
-                            response.render('admin-dashboard.ejs', {message: userDashboard, totalVotes: row, LoginedUsername: username, image: imagePath ? `/uploads/${path.basename(imagePath)}` : null, pageTitle: 'Dashboard', moduleName: 'Dashboard'});
-                        }
-                    }
+                return response.status(500).render('admin-dashboard.ejs', {
+                    message: 'Error loading dashboard',
+                    totalVotes: null,
+                    LoginedUsername: username,
+                    image: imagePath ? `/uploads/${path.basename(imagePath)}` : null,
+                    pageTitle: 'Dashboard',
+                    moduleName: 'Dashboard'
                 });
+            } 
 
-                
-            }
+            const contestantsDetails = `SELECT * FROM candidates`;
+
+            db.all(contestantsDetails, [], (err, rows) => {
+                if (err) {
+                    console.error(`Error retrieving contestants details: ${err.message}`);
+                    return response.status(500).render('admin-dashboard.ejs', {
+                        message: 'Error loading dashboard',
+                        totalVotes: row,
+                        candidatesData: null,
+                        LoginedUsername: username,
+                        image: imagePath ? `/uploads/${path.basename(imagePath)}` : null,
+                        pageTitle: 'Dashboard',
+                        moduleName: 'Dashboard'
+                    });
+                } 
+
+                console.log('All candidates:', rows);
+
+                const userDashboard = 'Admin Electoral Dashboard';
+                response.render('admin-dashboard.ejs', {
+                    message: userDashboard,
+                    totalVotes: row,
+                    candidatesData: rows,
+                    LoginedUsername: username,
+                    image: imagePath ? `/uploads/${path.basename(imagePath)}` : null,
+                    pageTitle: 'Dashboard',
+                    moduleName: 'Dashboard'
+                });
+            });
         });
-
-        // Render the dashboard page with user data
     } else {
-        // Redirect to login if user is not authenticated
-        response.render('login.ejs', {errorMessage: 'Login failed! Please try again.', pageTitle: 'Login' 
+        response.render('login.ejs', {
+            errorMessage: 'Login failed! Please try again.',
+            pageTitle: 'Login'
         });
     }
 });
+
 
 //voter - Get route
 app.get('/voter', (request, response) => {

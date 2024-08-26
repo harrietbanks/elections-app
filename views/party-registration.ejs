@@ -1,7 +1,7 @@
 <%- include("./extended-files/_admin-dashboard-header.ejs") -%>
 
 <body class="hold-transition register-page" >
-  <div class=" col-xl-12 col-md-12 col-sm-12 d-flex justify-content-center align-items-center mb-4">
+  <div class=" col-xl-12 col-md-12 col-sm-12 d-flex justify-content-around align-items-center mb-4 ">
     <!-- <div class="register-logo">
       <a href="/register"><b>Voting</b> System</a>
     </div> -->
@@ -9,38 +9,96 @@
     <div class="card-container card">
       <div class="card-body register-card-body col-12">
 
-          <h3 class="text-center"><b>Party</b> Registration</h3>
+            <h3 class="text-center"><b>Party</b> Registration</h3>
 
-      <form action="/party" method="post" role="form" id="registrationForm" enctype="multipart/form-data">
-          <!-- /.card-body -->
-          <div class="card-body">
-            <div class="form-group">
-              <label for="first-name">Party Name</label>
-              <input type="text" name="partyName" class="form-control" id="party-name" placeholder="Enter Party Name">
-            </div>
+        <form action="/party" method="post" role="form" id="registrationForm" enctype="multipart/form-data">
+            <!-- /.card-body -->
+            <div class="card-body">
+              <div class="form-group">
+                <label for="first-name">Party Name</label>
+                <input type="text" name="partyName" class="form-control" id="party-name" placeholder="Enter Party Name">
+              </div>
 
-            <div class="form-group">
-              <label for="file">Party Logo</label>
-              <div class="input-group">
-                <div class="custom-file">
-                  <input type="file" name="logo" class="custom-file-input inputImage"  id="file">
-                  <label class="custom-file-label imageName" for="file">Choose Logo</label>
+              <div class="form-group">
+                <label for="file">Party Logo</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" name="logo" class="custom-file-input inputImage"  id="file">
+                    <label class="custom-file-label imageName" for="file">Choose Logo</label>
+                  </div>
                 </div>
+              </div>
+
+              <div class=" input-group">
+                <button class="btn btn-radius-2 btn-primary submit btn-block swalDefaultSuccess " type="submit" id="submit">Submit</button>
               </div>
             </div>
 
-            <div class=" input-group">
-              <button class="btn btn-radius-2 btn-primary submit btn-block swalDefaultSuccess " type="submit" id="submit">Submit</button>
-            </div>
-          </div>
+            <!-- Form elements end! -->
 
-          <!-- Form elements end! -->
-
-      </form>
+        </form>
+      </div>
+      <!-- /.form-box -->
     </div>
-    <!-- /.form-box -->
-    </div><!-- /.card -->
+    <!-- /.card -->
+     <!-- DataTales Example -->
+    <div class="card shadow">
+      <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Parties Data Table</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                  <th>Logo</th>
+                  <th>Party Name</th>
+                  <th>Standard-bearer</th>
+                  <th>Action</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>Logo</th>
+                <th>Party Name</th>
+                <th>Standard Barear</th>
+                <th>Action</th>
+              </tr>
+            </tfoot>
+              <tbody>
+                <tr>
+                  <td><img src="./uploads/pngegg.png" class=" img-fluid rounded-circle img-thumbnail" alt="voter picture" style="max-width: 50px; max-height: 50px; object-fit: cover;"></td>
+                  <td>CAH</td>
+                  <td>Christian A. Harris</td>
+                  <td>
+                      <button type="button" class="btn btn-success">Edit</button>
+                      <button type="button" class="btn btn-danger">Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><img src="./uploads/pngegg.png" class=" img-fluid rounded-circle img-thumbnail" alt="voter picture" style="max-width: 50px; max-height: 50px; object-fit: cover;"></td>
+                  <td>CAH</td>
+                  <td>Christian A. Harris</td>
+                  <td>
+                      <button type="button" class="btn btn-success">Edit</button>
+                      <button type="button" class="btn btn-danger">Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><img src="./uploads/pngegg.png" class=" img-fluid rounded-circle img-thumbnail" alt="voter picture" style="max-width: 50px; max-height: 50px; object-fit: cover;"></td>
+                  <td>CAH</td>
+                  <td>Christian A. Harris</td>
+                  <td>
+                      <button type="button" class="btn btn-success">Edit</button>
+                      <button type="button" class="btn btn-danger">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+  </div>
     <div class="mb-5 pb-5"></div>
     <div class="mb-5 pb-5"></div>
     <div class="mb-5 pb-5"></div>
